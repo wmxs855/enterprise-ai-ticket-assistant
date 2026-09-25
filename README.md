@@ -116,7 +116,7 @@ python -m venv .venv
 ```text
 ai-ticket-assistant/
 ├─ data/          # 原始数据、清洗后数据和评测问题
-├─ docs/          # 学习记录、代码走读和面试材料
+├─ docs/          # 项目概览、技术设计和配置说明
 ├─ knowledge/     # 企业知识文档
 ├─ models/        # 已训练的工单分类模型
 ├─ reports/       # 模型、检索、工作流和接口评测报告
@@ -144,9 +144,9 @@ ai-ticket-assistant/
 - 当前检索方式适合小型知识库，尚未接入向量数据库、语义向量模型和重排序模型。
 - 下一步可加入真实身份认证、脱敏业务数据、独立测试集、容器化部署和线上监控。
 
-## 面试材料
+## 技术文档
 
-- [代码走读](docs/12_step_08_code_walkthrough.md)
-- [项目面试速记](docs/11_interview_cheatsheet.md)
-- [第一轮模拟面试](docs/13_mock_interview_round_01.md)
-- [名词解释](docs/glossary.md)
+- [项目概览](docs/project_overview.md)
+- [技术设计与代码导读](docs/technical_design_and_code_guide.md)
+- [在线模型配置说明](docs/online_model_setup.md)
+- [技术名词解释](docs/glossary.md)

@@ -8,6 +8,9 @@ __pycache__/
 # 本地配置和密钥
 .env
 
+# 仅保存在本机的学习记录和面试准备材料
+private_notes/
+
 # 编辑器和操作系统生成的文件
 .vscode/
 .idea/
@@ -16,4 +19,3 @@ Thumbs.db
 # 后续运行时产生的数据库和日志
 *.db
 logs/
-
