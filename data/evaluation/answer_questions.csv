@@ -1,0 +1,12 @@
+question,expected_source,required_terms,should_answer
+账号连续验证失败后会怎样,account_policy.md,三次|三十分钟,是
+新员工一直没有收到账号应该联系谁,account_policy.md,信息技术服务台|员工编号,是
+一线城市出差住宿上限是多少,reimbursement_policy.md,五百元,是
+报销申请通过后多久付款,reimbursement_policy.md,两个工作日,是
+重复扣款后多久能够退回,payment_guide.md,三个到五个工作日,是
+银行卡退款到账通常需要多久,payment_guide.md,三个到七个工作日,是
+系统支持上传多大的文件,technical_guide.md,二十兆字节,是
+核心服务完全不可用属于几级故障,technical_guide.md,一级故障,是
+公司食堂今天吃什么,,知识库中没有找到足够可靠的依据,否
+办公室能不能养宠物,,知识库中没有找到足够可靠的依据,否
+

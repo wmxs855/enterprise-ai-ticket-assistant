@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="企业知识库与智能工单助手面试演示">
+  <title>企业知识库与智能工单助手</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="topbar" aria-label="页面导航">
+        <a class="brand" href="/">
+          <span class="brand-mark" aria-hidden="true">智</span>
+          <span>企业智能服务台</span>
+        </a>
+        <div class="nav-actions">
+          <a href="/docs" target="_blank" rel="noreferrer">接口文档</a>
+          <span id="service-status" class="status-pill status-loading">
+            <span class="status-dot" aria-hidden="true"></span>
+            正在检查服务
+          </span>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <div>
+          <p class="eyebrow">知识有依据，操作可审计</p>
+          <h1>企业知识库与<br><span>智能工单助手</span></h1>
+          <p class="hero-copy">
+            从制度检索到工单闭环，用一个可解释的工作流连接知识、模型、权限与人工确认。
+          </p>
+        </div>
+        <div class="architecture" aria-label="系统处理流程">
+          <div class="flow-node"><strong>01</strong><span>理解请求</span></div>
+          <div class="flow-line" aria-hidden="true"></div>
+          <div class="flow-node"><strong>02</strong><span>选择工具</span></div>
+          <div class="flow-line" aria-hidden="true"></div>
+          <div class="flow-node"><strong>03</strong><span>返回证据</span></div>
+        </div>
+      </div>
+
+      <div class="metrics" aria-label="离线评测结果">
+        <div><strong>16 / 16</strong><span>检索首位命中</span></div>
+        <div><strong>96.7%</strong><span>合成测试集分类准确率</span></div>
+        <div><strong>37 / 37</strong><span>自动测试通过</span></div>
+        <div><strong>6 / 6</strong><span>接口场景通过</span></div>
+      </div>
+      <p class="metric-note">以上是本地合成数据与离线评测结果，不代表生产环境效果。</p>
+    </header>
+
+    <main>
+      <section class="identity-panel" aria-labelledby="identity-title">
+        <div>
+          <p class="section-kicker">演示身份</p>
+          <h2 id="identity-title">先确定谁在操作</h2>
+          <p>身份由请求参数模拟，仅用于展示权限规则，不是真实登录认证。</p>
+        </div>
+        <div class="identity-fields">
+          <label>
+            用户编号
+            <input id="user-id" value="demo-user" maxlength="100" autocomplete="off">
+          </label>
+          <label>
+            用户角色
+            <select id="user-role">
+              <option value="user">普通用户</option>
+              <option value="admin">管理员</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="功能演示区">
+        <article class="card assistant-card">
+          <div class="card-heading">
+            <div>
+              <p class="section-kicker">知识问答</p>
+              <h2>答案必须能追溯来源</h2>
+            </div>
+            <span class="number-badge">01</span>
+          </div>
+
+          <div class="quick-prompts" aria-label="示例问题">
+            <button type="button" data-question="一线城市住宿上限是多少">差旅标准</button>
+            <button type="button" data-question="账号输错密码被锁定怎么办">账号锁定</button>
+            <button type="button" data-question="重复扣款应该怎么处理">重复扣款</button>
+          </div>
+
+          <form id="assistant-form">
+            <label for="assistant-message">你的问题</label>
+            <textarea id="assistant-message" rows="4" maxlength="1000" required>一线城市住宿上限是多少</textarea>
+            <button class="primary-button" type="submit">查找有依据的答案</button>
+          </form>
+
+          <div id="assistant-result" class="result-panel empty-state" aria-live="polite">
+            选择示例问题或输入内容，结果会显示在这里。
+          </div>
+        </article>
+
+        <article class="card ticket-card">
+          <div class="card-heading">
+            <div>
+              <p class="section-kicker">工单闭环</p>
+              <h2>分类、查询与人工确认</h2>
+            </div>
+            <span class="number-badge">02</span>
+          </div>
+
+          <div class="step-block">
+            <div class="step-title"><span>1</span><strong>创建并自动分类</strong></div>
+            <form id="create-form">
+              <label for="ticket-description">问题描述</label>
+              <textarea id="ticket-description" rows="3" maxlength="1000" required>员工无法登录内部系统</textarea>
+              <button class="primary-button" type="submit">创建工单</button>
+            </form>
+          </div>
+
+          <div class="step-block two-column-form">
+            <div>
+              <label for="ticket-id">工单编号</label>
+              <input id="ticket-id" type="number" min="1" placeholder="创建后自动填入">
+            </div>
+            <button id="query-ticket" class="secondary-button" type="button">查询状态</button>
+          </div>
+
+          <div class="approval-row">
+            <label class="check-label">
+              <input id="approval" type="checkbox">
+              <span>我确认要关闭这张工单</span>
+            </label>
+            <button id="close-ticket" class="danger-button" type="button">关闭工单</button>
+          </div>
+
+          <div id="ticket-result" class="result-panel empty-state" aria-live="polite">
+            建议按“创建 → 查询 → 确认关闭”的顺序演示。
+          </div>
+        </article>
+      </section>
+
+      <section class="explain-section" aria-labelledby="explain-title">
+        <div>
+          <p class="section-kicker">设计原则</p>
+          <h2 id="explain-title">模型负责理解，程序负责边界</h2>
+        </div>
+        <div class="principle-grid">
+          <div><span>可解释</span><p>回答展示文档来源，工作流保留执行轨迹。</p></div>
+          <div><span>可控制</span><p>关闭操作必须明确确认，不能由模型擅自执行。</p></div>
+          <div><span>可验证</span><p>功能、权限、异常与边界场景均有自动测试。</p></div>
+          <div><span>诚实边界</span><p>合成数据只验证流程，不冒充真实业务效果。</p></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>本地学习型项目 · 数据与依赖保存在 D 盘</span>
+      <a href="/docs" target="_blank" rel="noreferrer">查看交互式接口文档 →</a>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

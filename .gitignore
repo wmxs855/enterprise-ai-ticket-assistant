@@ -1,0 +1,19 @@
+# Python 运行时生成的缓存文件
+__pycache__/
+*.py[cod]
+
+# 项目专用的 Python 隔离环境
+.venv/
+
+# 本地配置和密钥
+.env
+
+# 编辑器和操作系统生成的文件
+.vscode/
+.idea/
+Thumbs.db
+
+# 后续运行时产生的数据库和日志
+*.db
+logs/
+
